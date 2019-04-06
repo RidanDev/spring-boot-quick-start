@@ -1,7 +1,6 @@
-package com.example.demo;
+package com.example.demo.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,10 +17,17 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
+@Table(name = "topic")
 public class Topic {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
 }
